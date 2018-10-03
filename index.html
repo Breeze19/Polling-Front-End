@@ -164,7 +164,7 @@
 							            <p style="color:rgba(255,255,255,.8)">Twitter Wars, #InternetChallenges, MEMES, The Eminem-MGK Diss. Breeze 19’ is going to ‘BREAK THE INTERNET’.
 						         		</p>
                         <div id="btn1" class="action">
-                            <a class="button large" href="#btn1">Vote</a>
+                            <a id="btn1txt" class="button large" href="#btn1">Vote</a>
                           </div>
 
 						         	</div>
@@ -180,7 +180,7 @@
 							            <p style="color:rgba(255,255,255,.8)">Experience SNU's most monotonous places mutate into the most glamorous global locations. You know that magic that takes you places while you're standing absolutely still? We aim to deliver just that magic (except we're gonna be quite literal with it!).
 						         		</p>
                         <div id="btn2" class="action">
-                            <a class="button large" href="#btn2">Vote</a>
+                            <a id="btn2txt class="button large" href="#btn2">Vote</a>
                           </div>
 
 						            </div>
@@ -198,7 +198,7 @@
 						        			</p>
 
                           <div id="btn3" class="action">
-                  			      <a class="button large" href="#btn3">Vote</a>
+                  			      <a id="btn3txt class="button large" href="#btn3">Vote</a>
                   		      </div>
 
 
@@ -517,6 +517,14 @@
  		});
  		// Show success
  		alert('Success');
+			switch(value){
+      case 1: $("#btn1txt").html("Success");
+      break;
+      case 2: $("#btn2txt").html("Success");
+      break;
+      case 3: $("#btn3txt").html("Success");
+      break;
+    }
  		} catch (error) {
  		  console.log(error);
  		}
