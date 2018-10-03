@@ -30,7 +30,15 @@
 @import url("fonts.css");
 @import url("font-awesome/css/font-awesome.min.css");
 @import url("micons/micons.css");
+@font-face {
+  font-family: 'Blacklisted';
+  src: url('../css/font-awesome/fonts/Blacklisted.ttf');
+}
 
+@font-face {
+  font-family: 'Samankura';
+  src: url('../css/font-awesome/fonts/SAMAN___.TTF');
+}
 
 /* ===================================================================
  * 02. base style overrides - (_document-setup)
