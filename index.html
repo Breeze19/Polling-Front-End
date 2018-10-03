@@ -33,83 +33,6 @@
 	<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-database.js"></script>
-	<script>
-	  // Initialize Firebase
-	  const config = {
-		apiKey: 'AIzaSyDx19oRABRXnIrkHEGm2r9vnHELD-iEEIg',
-		authDomain: 'breeze-2019.firebaseapp.com',
-		databaseURL: 'https://breeze-2019.firebaseio.com',
-		projectId: 'breeze-2019',
-		storageBucket: '',
-		messagingSenderId: '1074310830971'
-	  };
-	  firebase.initializeApp(config);
-  
-	  // Helper functions
-	  function signInWithRedirect() {
-		const provider = new firebase.auth.GoogleAuthProvider();
-		firebase.auth().signInWithRedirect(provider);
-	  }
-  
-	  async function getRedirectedUser() {
-		try {
-		  const result = await firebase.auth().getRedirectResult();
-		  return result.user;
-		} catch (error) {
-		  console.log(`${error.code}: ${error.message}`);
-		}
-	  }
-  
-	  // Authentication Area
-	  let user;
-	  let redirectComplete = false;
-  
-	  // Using localStorage Web API
-	  if (window.localStorage) {
-		const currentLocalStorage = window.localStorage;
-		const isAuthDone = currentLocalStorage.getItem('isAuthDone');
-		// Before Redirect
-		if (isAuthDone === null) {
-		  currentLocalStorage.setItem('isAuthDone', 'true');
-		  signInWithRedirect()
-		}
-		// After Redirect
-		else {
-		  currentLocalStorage.removeItem('isAuthDone');
-		  user = getRedirectedUser();
-		  redirectComplete = true;
-		}
-	  }
-	  // Add the vote
-	  async function postVote(value) {
-		user = await user;
-		try {
-		const database = firebase.database();
-		const userSnapshot = await database.ref(`users/${user.uid}`).once('value');
-		if (userSnapshot.val()) {
-		  // Show vote modification not allowed
-		  alert('Vote modification not allowed');
-		  return;
-		}
-		await database.ref(`users/${user.uid}`).set({
-		  username: user.displayName,
-		  email: user.email,
-		  vote: value,
-		});
-		// Show success
-		alert('Success');
-		} catch (error) {
-		  console.log(error);
-		}
-	  }
-  
-	  function postVoteWrapper(value) {
-		if (!redirectComplete) {
-		  return
-		}
-		postVote(value);
-	  }
-	</script>
 </head>
 
 <body id="top">
@@ -125,9 +48,9 @@
 
 			<div class="social-links" style="float:left">
 			   <ul>
-					<li><a href="#"><i class="fa fa-facebook" style="color:yellow"></i></a></li>
-					<li><a href="#"><i class="fa fa-youtube" style="color:yellow"></i></a></li>
-				   <li><a href="#"><i class="fa fa-instagram" style="color:yellow"></i></a></li>
+					<li><a href="https://www.facebook.com/snu.breeze/"><i class="fa fa-facebook" style="color:yellow"></i></a></li>
+					<li><a href="https://www.youtube.com/channel/UCq-fFlEMV4r1HPYZiQrrd7w"><i class="fa fa-youtube" style="color:yellow"></i></a></li>
+				   <li><a href="https://www.instagram.com/breeze.snu/"><i class="fa fa-instagram" style="color:yellow"></i></a></li>
 				</ul>
 			</div>
    	</div>
@@ -480,13 +403,13 @@
    		<div class="row">
 
 	         <ul class="footer-social-list">
-	            <li><a href="#">
+	            <li><a href="https://www.facebook.com/snu.breeze/">
 	             	<i class="fa fa-facebook" style="color:yellow"></i><span>Facebook</span>
 	            </a></li>
-	            <li><a href="#">
+	            <li><a href="https://www.youtube.com/channel/UCq-fFlEMV4r1HPYZiQrrd7w">
 	              	<i class="fa fa-youtube" style="color:yellow"></i><span>YouTube</span>
 	            </a></li>
-	            <li><a href="#">
+	            <li><a href="https://www.instagram.com/breeze.snu/">
 	              	<i class="fa fa-instagram" style="color:yellow"></i><span>Instagram</span>
 	            </a></li>
 	         </ul>
@@ -517,12 +440,88 @@
     	<div id="loader"></div>
    </div>
 
+
    <!-- Java Script
    ================================================== -->
    <script src="js/jquery-2.1.3.min.js"></script>
    <script src="js/plugins.js"></script>
    <script src="js/main.js"></script>
    <script>
+ 	  // Initialize Firebase
+ 	  const config = {
+ 		apiKey: 'AIzaSyDx19oRABRXnIrkHEGm2r9vnHELD-iEEIg',
+ 		authDomain: 'breeze-2019.firebaseapp.com',
+ 		databaseURL: 'https://breeze-2019.firebaseio.com',
+ 		projectId: 'breeze-2019',
+ 		storageBucket: '',
+ 		messagingSenderId: '1074310830971'
+ 	  };
+ 	  firebase.initializeApp(config);
+
+ 	  // Helper functions
+ 	  function signInWithRedirect() {
+ 		const provider = new firebase.auth.GoogleAuthProvider();
+ 		firebase.auth().signInWithRedirect(provider);
+ 	  }
+
+ 	  async function getRedirectedUser() {
+ 		try {
+ 		  const result = await firebase.auth().getRedirectResult();
+ 		  return result.user;
+ 		} catch (error) {
+ 		  console.log(`${error.code}: ${error.message}`);
+ 		}
+ 	  }
+
+ 	  // Authentication Area
+ 	  let user;
+ 	  let redirectComplete = false;
+
+ 	  // Using localStorage Web API
+ 	  if (window.localStorage) {
+ 		const currentLocalStorage = window.localStorage;
+ 		const isAuthDone = currentLocalStorage.getItem('isAuthDone');
+ 		// Before Redirect
+ 		if (isAuthDone === null) {
+ 		  currentLocalStorage.setItem('isAuthDone', 'true');
+ 		  signInWithRedirect()
+ 		}
+ 		// After Redirect
+ 		else {
+ 		  currentLocalStorage.removeItem('isAuthDone');
+ 		  user = getRedirectedUser();
+ 		  redirectComplete = true;
+ 		}
+ 	  }
+ 	  // Add the vote
+ 	  async function postVote(value) {
+ 		user = await user;
+ 		try {
+ 		const database = firebase.database();
+ 		const userSnapshot = await database.ref(`users/${user.uid}`).once('value');
+ 		if (userSnapshot.val()) {
+ 		  // Show vote modification not allowed
+ 		  alert('Vote modification not allowed');
+ 		  return;
+ 		}
+ 		await database.ref(`users/${user.uid}`).set({
+ 		  username: user.displayName,
+ 		  email: user.email,
+ 		  vote: value,
+ 		});
+ 		// Show success
+ 		alert('Success');
+ 		} catch (error) {
+ 		  console.log(error);
+ 		}
+ 	  }
+
+ 	  function postVoteWrapper(value) {
+ 		if (!redirectComplete) {
+ 		  return
+ 		}
+ 		postVote(value);
+ 	  }
     document.getElementById("btn1").addEventListener("click", postVoteWrapper.bind(this, '1'));
     document.getElementById("btn2").addEventListener("click", postVoteWrapper.bind(this, '2'));
     document.getElementById("btn3").addEventListener("click", postVoteWrapper.bind(this, '3'));
