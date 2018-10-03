@@ -825,10 +825,10 @@ header .logo a {
 	padding: 0;
 	outline: 0;
 	border: none;
-	width: 250px;
+	width: 150px;
 	height: 84px;
 	background: url("../images/Breeze/Blogo.png") no-repeat center;
-	background-size: 250px 84px;
+	background-size: 150px 84px;
 	font: 0/0 a;
 	text-shadow: none;
 	color: transparent;
@@ -886,9 +886,9 @@ header .social-links ul li a:focus {
 		margin-top: 42px;
 	}
 	header .logo a {
-		width: 200px;
+		width: 150px;
 		height: 100px;
-		background-size: 200px 100px;
+		background-size: 1500px 100px;
 	}
 	header .social-links {
 		right: 18px;
@@ -916,9 +916,9 @@ header .social-links ul li a:focus {
 		margin-top: 30px;
 	}
 	header .logo a {
-		width: 150px;
+		width: 100px;
 		height: 61px;
-		background-size: 150px 61px;
+		background-size: 100px 61px;
 	}
 	header .social-links {
 		right: 41px;
@@ -948,9 +948,9 @@ header .social-links ul li a:focus {
 		margin-top: 30px;
 	}
 	header .logo a {
-		width: 150px;
+		width: 100px;
 		height: 52px;
-		background-size: 150px 52px;
+		background-size: 100px 52px;
 	}
 	header .social-links ul {
 		font-size: 2rem;
