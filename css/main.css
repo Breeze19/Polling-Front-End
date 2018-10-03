@@ -888,7 +888,7 @@ header .social-links ul li a:focus {
 	header .logo a {
 		width: 150px;
 		height: 100px;
-		background-size: 1500px 100px;
+		background-size: 150px 100px;
 	}
 	header .social-links {
 		right: 18px;
@@ -917,8 +917,8 @@ header .social-links ul li a:focus {
 	}
 	header .logo a {
 		width: 100px;
-		height: 61px;
-		background-size: 100px 61px;
+		height: 35px;
+		background-size: 100px 35px;
 	}
 	header .social-links {
 		right: 41px;
@@ -949,8 +949,8 @@ header .social-links ul li a:focus {
 	}
 	header .logo a {
 		width: 100px;
-		height: 52px;
-		background-size: 100px 52px;
+		height: 35px;
+		background-size: 100px 35px;
 	}
 	header .social-links ul {
 		font-size: 2rem;
